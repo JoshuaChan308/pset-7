@@ -21,8 +21,27 @@ function commonEnd(a, b) {
 }
 
 function endsMeet(values, n) {
+  let arrayCheck = [];
 
-
+  if (values.length < n || !values || !Number.isInteger(n) || n < 0) {
+      return arrayCheck;
+  } else {
+      if (n === 0){
+          return values;
+      } else {
+          for (let i = 0; i < n; i++) {
+              if (values[i] !== undefined) {
+                  arrayCheck.push(values[i]);
+              }
+          }
+          for (let i = n; i > 0; i--) {
+              if (values[values.length - i] !== undefined) {
+                  arrayCheck.push(values[values.length - i]);
+              }
+          }
+          return arrayCheck;
+      }
+  }
 }
 
 function difference(numbers) {
