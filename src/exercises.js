@@ -21,25 +21,25 @@ function commonEnd(a, b) {
 }
 
 function endsMeet(values, n) {
-  let arrayCheck = [];
+  let newArray = [];
 
   if (!values || values.length < n || !Number.isInteger(n) || n < 0) {
-    return arrayCheck;
+    return newArray;
   } else {
     if (n === 0) {
       return values;
     } else {
       for (let i = 0; i < n; i++) {
         if (values[i] !== undefined) {
-          arrayCheck.push(values[i]);
+          newArray.push(values[i]);
         }
       }
       for (let i = n; i > 0; i--) {
         if (values[values.length - i] !== undefined) {
-          arrayCheck.push(values[values.length - i]);
+          newArray.push(values[values.length - i]);
         }
       }
-      return arrayCheck;
+      return newArray;
     }
   }
 }
