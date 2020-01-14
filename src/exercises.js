@@ -76,7 +76,19 @@ function max(number) {
 }
 
 function middle(values) {
-  // write your code here
+  let array = [];
+    if (values == undefined ||  values.length < 3 || values.length%2 == 0 ){
+          return [];
+      }
+
+     else {
+      let middleElement = values[values.length - (Math.ceil(values.length / 2))]
+      let secondMiddleElement = values[(values.length - 1) - (Math.ceil(values.length / 2))]
+
+      array.push(secondMiddleElement, middleElement)
+
+      return array;
+    }
 }
 
 function increasing(numbers) {
