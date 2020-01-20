@@ -169,12 +169,77 @@ function consecutive(numbers) {
 }
 
 function balance(numbers) {
-  // write your code here
-  console.log("test");
+  let size = 0
+  let firstSum = 0
+  let secondSum = 0
+  let count = 0
+  if (!numbers || numbers.length < 2) {
+    return false;
+  }
+  for (i = 0; i < numbers.length; i++) {
+    if (!(Number.isInteger(numbers[i]))) {
+      return false;
+    }
+  }
+  for (z = 0; z < numbers.length; z++) {
+    if (numbers[z] == undefined) {
+      return true;
+    }
+  }
+  for (x = numbers.length; x > -1; x--) {
+    firstSum = 0
+    secondSum = 0
+    for(y = numbers.length - x; y > -1; y--) {
+      firstSum = firstSum + numbers[y]
+    }
+    for(a = numbers.length - 1; a > numbers.length - x; a--) {
+      secondSum = secondSum + numbers[a]
+    }
+    if (secondSum == firstSum) {
+      count = 1
+      return true;
+    }
+  }
+  if (count == 0) {
+    return false;
+  }
 }
 
 function clumps(values) {
-  // write your code here
+ if (!values) {
+    return -1;
+  }
+  if (values.length < 2) {
+    return 0;
+  }
+  let last = values[0];
+  let current;
+  let clump = 0
+  let count = 0
+  let count2 = 0
+  for (x = 1; x < values.length; x++) {
+    current = values[x]
+    if (last === current) {
+      clump = clump + 1
+      for (y = x; y < values.length; y++) {
+        last = current
+        current = values[y]
+        if (!(last === current)) {
+          count = 1
+          x = y
+          break;
+        }
+        else {
+          count = -1
+        }
+      }
+    }
+    if (count == -1) {
+      break;
+    }
+    last = current
+  }
+  return clump;
 }
 
 /*
